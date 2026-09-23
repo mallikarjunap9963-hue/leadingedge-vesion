@@ -769,77 +769,235 @@ footer {
 ===================================== */
 
 @media (max-width: 1024px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-container {
+    min-height: 500px;
+    padding-top: 70px;
+  }
+
+  .hero-content {
+    flex: 0 0 55%;
+    width: 55%;
+    max-width: 580px;
+    padding: 50px 30px 40px 50px;
+  }
+
   .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .collaboration-left h2,
+  .collaboration-middle h2 {
+    font-size: clamp(24px, 2.8vw, 34px);
+  }
+
+  .japan {
+    grid-template-columns: 1fr 1fr;
+    min-height: auto;
+  }
+
+  .benefits {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
 
-@media (max-width: 640px) {
+/* --- MOBILE & SMALL TABLET VIEW (<= 768px) --- */
+@media (max-width: 768px) {
+  .hero-nav {
+    padding: 16px 0;
+  }
+
+  .nav-container {
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .hero {
+    background: linear-gradient(to right, rgba(0, 45, 91, 0.94) 0%, rgba(0, 45, 91, 0.75) 100%),
+                url('hero updated version.png') no-repeat center right / cover;
+    min-height: 440px;
+  }
+
+  .hero-container {
+    min-height: 440px;
+    padding-top: 80px;
+  }
+
+  .hero-content {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 20px 40px;
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(38px, 9vw, 54px);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(18px, 5vw, 24px);
+    margin-top: 8px;
+  }
+
+  .hero-content h3 {
+    font-size: clamp(30px, 7.5vw, 42px);
+    margin-top: 4px;
+  }
+
+  .hero-content p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-top: 18px;
+  }
+
   .cards-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
+  .collaboration {
+    background: linear-gradient(to bottom, rgba(0, 39, 80, 0.96) 0%, rgba(0, 39, 80, 0.85) 100%),
+                url('cta above section.png') no-repeat center right / cover;
+    padding: 40px 0;
+  }
+
+  .collaboration-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .collaboration-left h2,
+  .collaboration-middle h2 {
+    font-size: clamp(22px, 5.5vw, 30px);
+  }
+
+  .collaboration-middle p {
+    max-width: 100%;
+    margin: 10px auto 0;
+  }
+
+  .japan {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin: 24px 0;
+  }
+
+  .japan-image {
+    min-height: 260px;
+    max-height: 300px;
+  }
+
+  .japan-content {
+    padding: 30px 20px;
+  }
+
+  .japan-content h2 {
+    font-size: clamp(22px, 5.5vw, 30px);
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .benefit {
+    border-right: none;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 14px;
+  }
+
+  .benefit:nth-child(3),
+  .benefit:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .education-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  footer {
+    padding: 32px 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footer-text {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 0;
+  }
+
+  .footer-curve {
+    margin: 10px auto 0;
+  }
 }
 
-.hero-content {
+/* --- SMALL MOBILE VIEW (<= 480px) --- */
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 12px;
+  }
 
-  padding: 35px 30px;
+  .nav-link {
+    font-size: 13px;
+  }
 
-}
+  .hero-content {
+    padding: 15px 16px 30px;
+  }
 
+  .cards-grid {
+    gap: 14px;
+  }
 
-.hero-content h1 {
+  .card h3 {
+    font-size: 15px;
+  }
 
-  font-size: 125px;
+  .card p {
+    font-size: 12.5px;
+    padding: 0 14px 18px;
+  }
 
-}
+  .benefits {
+    grid-template-columns: 1fr;
+  }
 
+  .benefit {
+    border-bottom: 1px solid #cbd5e1;
+    padding: 12px 0;
+  }
 
-.robot {
-
-  font-size: 260px;
-
-  left: 0;
-
-}
-
-
-.innovation {
-
-  width: 200px;
-
-  font-size: 25px;
-
-}
-
-
-.benefits {
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 20px;
-
-}
-
-
-.benefit:nth-child(2) {
-
-  border-right: 0;
-
-}
-
-
-.japan-content h2 {
-
-  font-size: 30px;
-
-}
-
-
-.footer-title h2 {
-
-  font-size: 42px;
-
+  .benefit:last-child {
+    border-bottom: none;
+  }
 }
