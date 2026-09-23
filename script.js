@@ -50,3 +50,17 @@ sections.forEach(section => {
   sectionObserver.observe(section);
 });
 
+
+/* =====================================
+   NAV LINK ACTIVE STATE HANDLER
+===================================== */
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", function() {
+    navLinks.forEach(l => l.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
+

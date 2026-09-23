@@ -30,6 +30,67 @@ body {
 
 
 /* =====================================
+   HERO NAVIGATION
+===================================== */
+
+.hero-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  padding: 24px 0;
+  background: linear-gradient(to bottom, rgba(0, 25, 55, 0.7) 0%, rgba(0, 25, 55, 0) 100%);
+}
+
+.nav-container {
+  width: min(1450px, 94%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffe500;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #ffe500;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+
+/* =====================================
    HERO SECTION (FULL BACKGROUND IMAGE)
 ===================================== */
 
@@ -38,7 +99,7 @@ body {
   color: white;
   position: relative;
   overflow: hidden;
-  min-height: 540px;
+  min-height: 580px;
   display: flex;
   align-items: center;
 }
@@ -50,7 +111,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-height: 540px;
+  min-height: 580px;
+  padding-top: 60px;
 }
 
 /* LEFT SIDE: OVERLAID ON BLUE GRADIENT SPACE */
