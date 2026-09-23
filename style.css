@@ -121,7 +121,7 @@ body {
   width: 46%;
   max-width: 650px;
   background: transparent;
-  padding: 60px 40px 60px 70px;
+  padding: 60px 40px 60px 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,7 +130,7 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 57px;
+  font-size: 115px;
   line-height: 0.92;
   font-weight: 800;
   letter-spacing: -2.5px;
@@ -139,7 +139,7 @@ body {
 }
 
 .hero-content h2 {
-  font-size: 52px;
+  font-size: 50px;
   font-weight: 800;
   color: #ffffff;
   margin-top: 12px;
@@ -233,13 +233,13 @@ body {
 
 
 /* =====================================
-   ROBOTICS CARDS (2 ROWS GRID)
+   ROBOTICS CARDS (3 CARDS PER ROW)
 ===================================== */
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   padding: 12px 0;
 }
 
@@ -828,7 +828,7 @@ footer {
 
   .hero {
     background: linear-gradient(to right, rgba(0, 45, 91, 0.94) 0%, rgba(0, 45, 91, 0.75) 100%),
-                url('hero updated version.png') no-repeat center right / cover;
+      url('hero updated version.png') no-repeat center right / cover;
     min-height: 440px;
   }
 
@@ -872,7 +872,7 @@ footer {
 
   .collaboration {
     background: linear-gradient(to bottom, rgba(0, 39, 80, 0.96) 0%, rgba(0, 39, 80, 0.85) 100%),
-                url('cta above section.png') no-repeat center right / cover;
+      url('cta above section.png') no-repeat center right / cover;
     padding: 40px 0;
   }
 
