@@ -387,6 +387,7 @@ body {
   grid-template-columns: 44% 56%;
   min-height: 460px;
   background: #ffffff;
+  margin: 40px 0;
 }
 
 .japan-image {
