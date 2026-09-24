@@ -58,9 +58,39 @@ sections.forEach(section => {
 const navLinks = document.querySelectorAll(".nav-link");
 
 navLinks.forEach(link => {
-  link.addEventListener("click", function() {
+  link.addEventListener("click", function () {
     navLinks.forEach(l => l.classList.remove("active"));
     this.classList.add("active");
   });
 });
+
+
+/* =====================================
+   MOBILE MENU TOGGLE
+===================================== */
+const menuToggle = document.getElementById("menuToggle");
+const navLinksContainer = document.getElementById("navLinks");
+
+if (menuToggle && navLinksContainer) {
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuToggle.classList.toggle("open");
+    navLinksContainer.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menuToggle.contains(e.target) && !navLinksContainer.contains(e.target)) {
+      menuToggle.classList.remove("open");
+      navLinksContainer.classList.remove("open");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("open");
+      navLinksContainer.classList.remove("open");
+    });
+  });
+}
+
 
