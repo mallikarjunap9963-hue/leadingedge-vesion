@@ -4,20 +4,22 @@
 
 const topButton = document.getElementById("topButton");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    topButton.classList.add("show");
-  } else {
-    topButton.classList.remove("show");
-  }
-});
-
-topButton.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+if (topButton) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      topButton.classList.add("show");
+    } else {
+      topButton.classList.remove("show");
+    }
   });
-});
+
+  topButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
 
 
 
@@ -68,17 +70,21 @@ navLinks.forEach(link => {
 /* =====================================
    MOBILE MENU TOGGLE
 ===================================== */
-const menuToggle = document.getElementById("menuToggle");
-const navLinksContainer = document.getElementById("navLinks");
+function initMobileMenu() {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinksContainer = document.getElementById("navLinks");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-if (menuToggle && navLinksContainer) {
-  menuToggle.addEventListener("click", (e) => {
+  if (!menuToggle || !navLinksContainer) return;
+
+  menuToggle.onclick = function (e) {
     e.stopPropagation();
+    e.preventDefault();
     menuToggle.classList.toggle("open");
     navLinksContainer.classList.toggle("open");
-  });
+  };
 
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", function (e) {
     if (!menuToggle.contains(e.target) && !navLinksContainer.contains(e.target)) {
       menuToggle.classList.remove("open");
       navLinksContainer.classList.remove("open");
@@ -86,11 +92,17 @@ if (menuToggle && navLinksContainer) {
   });
 
   navLinks.forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function () {
       menuToggle.classList.remove("open");
       navLinksContainer.classList.remove("open");
     });
   });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMobileMenu);
+} else {
+  initMobileMenu();
 }
 
 
