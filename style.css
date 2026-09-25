@@ -2547,3 +2547,651 @@ footer {
     padding: 36px 24px;
   }
 }
+
+
+/* =====================================
+   CONTACT US PAGE STYLES
+===================================== */
+
+.contact-hero {
+  background: #002750 url('hero updated version.png') no-repeat center right / cover;
+  min-height: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.contact-hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-hero-content {
+  flex: 0 0 55%;
+  max-width: 650px;
+}
+
+.contact-title {
+  font-size: clamp(48px, 5.5vw, 76px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+}
+
+.contact-title-underline {
+  width: 65px;
+  height: 4px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+  margin: 12px 0 20px;
+}
+
+.contact-subtitle {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.contact-description {
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+/* STEM STAMP BADGE */
+.stem-badge-wrapper {
+  flex: 0 0 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stem-badge {
+  background: radial-gradient(circle, #e60000 0%, #b30000 100%);
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  border: 4px solid #ffffff;
+  transform: rotate(-8deg);
+  transition: transform 0.3s ease;
+}
+
+.stem-badge:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.stem-badge-top {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.stem-badge-mid {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.1;
+  opacity: 0.9;
+}
+
+.stem-badge-main {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.japan-flag-icon {
+  margin-top: 4px;
+  display: flex;
+}
+
+/* MAIN CONTACT SECTION */
+.contact-main-section {
+  padding: 50px 0 80px;
+  background: #f8fafc;
+}
+
+.contact-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-section-tag {
+  font-size: 13px;
+  font-weight: 900;
+  color: #00376b;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-header-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.contact-header-divider h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  color: #002750;
+  letter-spacing: -0.5px;
+}
+
+.divider-line {
+  width: 60px;
+  height: 2px;
+  background-color: #94a3b8;
+}
+
+.divider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--yellow);
+}
+
+/* TOP TWO CARDS */
+.contact-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.contact-info-card,
+.contact-ceo-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 32px;
+  box-shadow: 0 10px 30px rgba(0, 39, 80, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.contact-info-card {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.card-logo-col {
+  border-right: 2px solid #e2e8f0;
+  padding-right: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.company-logo-img {
+  width: 150px;
+  max-width: 150px;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+.card-details-col h3 {
+  font-size: 17px;
+  font-weight: 900;
+  color: #002d5b;
+  margin-bottom: 8px;
+}
+
+.company-address {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.company-contact-rows,
+.ceo-contact-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-icon-pill {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #00376b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-text-val {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.contact-text-link {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #00376b;
+  text-decoration: none;
+}
+
+.contact-text-link:hover {
+  text-decoration: underline;
+}
+
+/* CEO CARD (BUSINESS CARD STYLE) */
+.contact-ceo-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 32px;
+  box-shadow: 0 10px 30px rgba(0, 39, 80, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ceo-main-info {
+  width: 100%;
+}
+
+.ceo-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.large-logo {
+  margin-bottom: 12px;
+}
+
+.large-logo svg {
+  width: 90px;
+  height: 72px;
+}
+
+.ceo-title-block {
+  margin-top: 4px;
+}
+
+.ceo-name-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ceo-name-group h3 {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.ceo-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #00376b;
+  letter-spacing: 0.5px;
+}
+
+.card-section-heading {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #00376b;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.japan-section-heading {
+  display: block;
+  font-size: 13px;
+  font-weight: 900;
+  color: #d32f2f;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.ceo-contact-inline-rows {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.card-red-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #d32f2f, #ef4444);
+  margin: 16px 0 20px;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.japan-address-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.japan-address-en p,
+.japan-address-jp p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #475569;
+  font-weight: 500;
+}
+
+.japan-address-jp {
+  text-align: right;
+}
+
+.ceo-web-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #00376b;
+  text-decoration: none;
+  margin-top: 6px;
+}
+
+.ceo-web-link:hover {
+  text-decoration: underline;
+  color: #d32f2f;
+}
+
+/* MIDDLE CARD: OUR OFFICE & MAP */
+.contact-mid-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.full-width-grid {
+  grid-template-columns: 1fr;
+}
+
+.contact-form-card,
+.contact-office-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 39, 80, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.full-office-card {
+  width: 100%;
+}
+
+.card-header-bar {
+  margin-bottom: 24px;
+}
+
+.card-header-bar h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #002d5b;
+  margin-bottom: 6px;
+}
+
+.yellow-accent-bar {
+  width: 50px;
+  height: 4px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+}
+
+/* OFFICE CARD */
+.office-address-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.address-text-col strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: #002d5b;
+  margin-bottom: 4px;
+}
+
+.address-text-col p {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #475569;
+  font-weight: 500;
+}
+
+.office-map-preview {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 39, 80, 0.08);
+}
+
+.full-map-preview {
+  height: 400px;
+}
+
+.office-map-preview iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: 0;
+  display: block;
+}
+
+/* JAPAN BOTTOM CARD (WATERMARK CARD) */
+.contact-japan-card {
+  position: relative;
+  background: #002147;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 39, 80, 0.18);
+  color: #ffffff;
+  padding: 36px 40px;
+}
+
+.watermark-card {
+  background: #002147;
+}
+
+.watermark-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.04);
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85;
+}
+
+.watermark-logo-bg span {
+  font-size: 140px;
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.watermark-logo-bg small {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 12px;
+  margin-left: 6px;
+}
+
+.japan-card-content {
+  position: relative;
+  z-index: 2;
+  margin-left: max(28%, 220px);
+}
+
+.japan-card-content h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 22px;
+}
+
+.japan-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.japan-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.japan-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.japan-text-split {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+.japan-text-left,
+.japan-text-right {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+.japan-text-left a {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.japan-text-left a:hover {
+  text-decoration: underline;
+}
+
+.contact-footer {
+  background: #001e3d;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.footer-credit-link {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-credit-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE FOR CONTACT */
+@media (max-width: 1024px) {
+
+  .contact-top-grid,
+  .contact-mid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .japan-card-content {
+    margin-left: 0;
+  }
+
+  .japan-card-bg-visual {
+    width: 100%;
+  }
+
+  .japan-card-overlay {
+    background: rgba(0, 39, 80, 0.92);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .contact-info-card,
+  .contact-ceo-card {
+    flex-direction: column;
+    padding-right: 30px;
+  }
+
+  .card-logo-col {
+    border-right: none;
+    border-bottom: 2px solid #f1f5f9;
+    padding-right: 0;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .ceo-photo-col {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .ceo-photo-wrapper {
+    border-radius: 12px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .japan-text-split {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
