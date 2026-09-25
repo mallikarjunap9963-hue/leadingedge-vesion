@@ -944,23 +944,24 @@ footer {
 
   .nav-links {
     position: absolute;
-    top: 50px;
+    top: 54px;
     right: 0;
-    width: 220px;
-    background: rgb(1 148 254);
+    width: 270px;
+    background: #0a71f0;
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
     flex-direction: column;
     gap: 0;
-    padding: 8px 0;
+    padding: 6px 0;
     display: none;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10001;
+    overflow: hidden;
   }
 
   .nav-links.open {
@@ -975,13 +976,67 @@ footer {
     padding: 13px 20px;
     width: 100%;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     display: block;
+    color: #ffffff;
   }
 
-  .nav-link:last-child {
+  .nav-link:hover,
+  .nav-link.active {
+    color: #ffe500;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none !important;
+    min-width: 100%;
+    background: rgba(7, 110, 246, 0.95);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 4px 0;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+
+  .nav-dropdown.open .dropdown-menu {
+    display: block !important;
+  }
+
+  .dropdown-item {
+    padding: 11px 20px 11px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    white-space: normal;
+  }
+
+  .dropdown-item:last-child {
     border-bottom: none;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item.active {
+    color: #ffe500;
+    background: rgba(255, 229, 0, 0.12);
   }
 
   .hero {
@@ -1161,6 +1216,7 @@ footer {
 
   .hero-content {
     padding: 12px 14px 25px;
+    margin-bottom: 380px;
   }
 
   .hero-content h1 {
@@ -1717,7 +1773,20 @@ footer {
   }
 
   .promise-card {
-    padding: 36px 24px;
+    background: #002750 url('mobile version cta section.png') no-repeat center top / cover;
+    padding: 40px 24px;
+    min-height: 480px;
+    align-items: flex-start;
+  }
+
+  .promise-content {
+    max-width: 100%;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .promise-content h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
   }
 }
 
@@ -3891,6 +3960,45 @@ footer {
   }
 }
 
+@media (max-width: 992px) {
+
+  .tour-subtext,
+  .tour-features-bullets,
+  .tour-web-row {
+    display: none !important;
+  }
+
+  .outcome-card-dark {
+    background: #001e3d url('images/mobile version cta section.png') no-repeat center top / cover;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 32px 24px 20px;
+  }
+
+  .outcome-card-dark::before {
+    background: linear-gradient(180deg, rgba(0, 30, 60, 0.95) 0%, rgba(0, 39, 80, 0.75) 45%, rgba(0, 55, 107, 0.1) 100%);
+  }
+
+  .outcome-details-col {
+    max-width: 100%;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .outcome-details-col h2 {
+    font-size: clamp(20px, 5.2vw, 28px);
+    margin-bottom: 14px;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+  }
+
+  .outcome-check-list li {
+    font-size: 13.5px;
+    gap: 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  }
+}
+
 @media (max-width: 640px) {
   .included-items-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -3916,11 +4024,7 @@ footer {
   }
 
   .outcome-card-dark {
-    padding: 28px 20px;
-    background-position: center top;
-  }
-
-  .outcome-card-dark::before {
-    background: rgba(0, 30, 60, 0.92);
+    padding: 28px 18px 20px;
+    min-height: 500px;
   }
 }
