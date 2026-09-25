@@ -30,27 +30,27 @@ if (topButton) {
 ===================================== */
 
 const sections = document.querySelectorAll(
-  ".collaboration-left, .collaboration-middle, .japan-content, .footer-title, .footer-text, .footer-right"
+  ".collaboration-left, .collaboration-middle, .japan-content, .footer-title, .footer-text, .footer-right, .who-we-are-content, .who-we-are-image, .about-raj-card, .venture-card, .promise-card, .trip-covers-card, .day-card, .outcome-card, .contact-box, .ambassador-bullets li, .award-photo-box, .legacy-item, .inspiring-card, .ambassador-contact-card"
 );
 
-const sectionObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-sections.forEach(section => {
-  section.style.opacity = "0";
-  section.style.transform = "translateY(30px)";
-  section.style.transition = "all .8s ease";
-  sectionObserver.observe(section);
-});
+  sections.forEach(section => {
+    section.classList.add("reveal");
+    sectionObserver.observe(section);
+  });
+}
 
 
 /* =====================================
