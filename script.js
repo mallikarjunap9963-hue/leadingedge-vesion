@@ -187,5 +187,101 @@ if (document.readyState === "loading") {
   initCounters();
 }
 
+/* =====================================
+   DAY CARD PHOTO SWITCHER
+===================================== */
+function switchDayImg(btn) {
+  const card = btn.closest('.day-card-new');
+  if (!card) return;
+  const img = card.querySelector('.day-img-wrapper img');
+  const newSrc = btn.getAttribute('data-img');
+  if (img && newSrc) {
+    img.style.transition = 'opacity 0.2s ease';
+    img.style.opacity = '0.3';
+    setTimeout(() => {
+      img.src = newSrc;
+      img.style.opacity = '1';
+    }, 150);
+  }
+  const tabs = card.querySelectorAll('.photo-tab-btn');
+  tabs.forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* =====================================
+   MAGNIFIC POPUP LIGHTBOX FOR TOUR IMAGES
+===================================== */
+function initMagnificPopup() {
+  let overlay = document.querySelector(".magnific-popup-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "magnific-popup-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.innerHTML = `
+      <div class="magnific-popup-container">
+        <button class="magnific-popup-close" aria-label="Close Popup">&times;</button>
+        <div class="magnific-popup-img-wrapper">
+          <img src="" alt="" class="magnific-popup-img" />
+        </div>
+        <div class="magnific-popup-footer">
+          <span class="magnific-popup-caption"></span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+
+  const popupImg = overlay.querySelector(".magnific-popup-img");
+  const popupCaption = overlay.querySelector(".magnific-popup-caption");
+  const closeBtn = overlay.querySelector(".magnific-popup-close");
+
+  function closePopup() {
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closePopup);
+  }
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closePopup();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("active")) {
+      closePopup();
+    }
+  });
+
+  const imgBoxes = document.querySelectorAll(".gallery-img-box");
+  imgBoxes.forEach((box) => {
+    box.addEventListener("click", () => {
+      const img = box.querySelector("img");
+      const label = box.querySelector(".gallery-img-label");
+      if (!img) return;
+
+      const src = img.getAttribute("src");
+      let altText = label ? label.textContent.trim() : (img.getAttribute("alt") || "Tour Landmark");
+
+      popupImg.src = src;
+      popupImg.alt = altText;
+      popupCaption.innerHTML = altText.startsWith("📍") ? altText : `📍 ${altText}`;
+
+      overlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMagnificPopup);
+} else {
+  initMagnificPopup();
+}
+
 
 
