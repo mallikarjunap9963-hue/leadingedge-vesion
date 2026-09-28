@@ -4098,6 +4098,55 @@ footer {
   margin: 12px 0 0 0;
 }
 
+.bullet-train-badge {
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.day-locations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.day-location-card {
+  background: #f8fafc;
+  border-left: 4px solid #0056b3;
+  padding: 10px 14px;
+  border-radius: 0 10px 10px 0;
+  transition: background 0.2s ease;
+}
+
+.day-location-card:hover {
+  background: #f1f5f9;
+}
+
+.location-heading {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.location-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #475569;
+  font-weight: 400;
+  margin: 0;
+}
+
 .day-row-bullets {
   list-style: none !important;
   padding: 0 !important;
