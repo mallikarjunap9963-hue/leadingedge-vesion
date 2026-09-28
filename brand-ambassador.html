@@ -224,8 +224,10 @@
             <div class="header-blue-bar"></div>
           </div>
 
-          <form id="enquiryForm" class="touch-form"
-            onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will contact you soon.');">
+          <form id="enquiryForm" class="touch-form" method="POST" action="send_mail.php">
+
+            <!-- AJAX STATUS BANNER CONTAINER -->
+            <div class="form-status-alert" role="alert" style="display: none;"></div>
 
             <div class="form-row-2col">
               <div class="form-group">
@@ -237,7 +239,7 @@
                         d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                     </svg>
                   </span>
-                  <input type="text" id="touchName" placeholder="Your Full Name *" required />
+                  <input type="text" id="touchName" name="name" placeholder="Your Full Name *" required />
                 </div>
               </div>
 
@@ -250,7 +252,7 @@
                         d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                     </svg>
                   </span>
-                  <input type="tel" id="touchPhone" placeholder="Phone Number *" required />
+                  <input type="tel" id="touchPhone" name="phone" placeholder="Phone Number *" required />
                 </div>
               </div>
             </div>
@@ -265,7 +267,7 @@
                         d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
                   </span>
-                  <input type="email" id="touchEmail" placeholder="Email Address *" required />
+                  <input type="email" id="touchEmail" name="email" placeholder="Email Address *" required />
                 </div>
               </div>
 
@@ -278,7 +280,7 @@
                         d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
                     </svg>
                   </span>
-                  <input type="text" id="touchCompany" placeholder="School or Company Name *" required />
+                  <input type="text" id="touchCompany" name="company" placeholder="School or Company Name *" required />
                 </div>
               </div>
             </div>
@@ -292,7 +294,7 @@
                       d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
                   </svg>
                 </span>
-                <textarea id="touchMessage" rows="3" placeholder="Your Message or Tour Enquiry Details *" required></textarea>
+                <textarea id="touchMessage" name="message" rows="3" placeholder="Your Message or Tour Enquiry Details *" required></textarea>
               </div>
             </div>
 

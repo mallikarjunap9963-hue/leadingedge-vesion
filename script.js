@@ -278,10 +278,183 @@ function initMagnificPopup() {
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initMagnificPopup);
+  document.addEventListener("DOMContentLoaded", () => {
+    initMagnificPopup();
+    initContactForm();
+  });
 } else {
   initMagnificPopup();
+  initContactForm();
 }
+
+
+/* =====================================
+   AJAX CONTACT FORM HANDLER (PHPMailer)
+===================================== */
+function initContactForm() {
+  const forms = document.querySelectorAll("#enquiryForm, .touch-form");
+  if (!forms || forms.length === 0) return;
+
+  forms.forEach(form => {
+    // Prevent duplicate listener attachments
+    if (form.dataset.ajaxAttached) return;
+    form.dataset.ajaxAttached = "true";
+
+    // Remove any inline onsubmit attribute if present
+    form.removeAttribute("onsubmit");
+
+    let isSubmitting = false;
+
+    // Locate or create the status alert banner inside the form
+    let alertBox = form.querySelector(".form-status-alert");
+    if (!alertBox) {
+      alertBox = document.createElement("div");
+      alertBox.className = "form-status-alert";
+      alertBox.setAttribute("role", "alert");
+      form.insertBefore(alertBox, form.firstChild);
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (isSubmitting) return;
+
+      const submitBtn = form.querySelector('button[type="submit"], .touch-submit-btn');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "<span>SUBMIT ENQUIRY</span>";
+
+      // Hide prior alerts
+      alertBox.className = "form-status-alert";
+      alertBox.innerHTML = "";
+      alertBox.style.display = "none";
+
+      // Construct FormData and capture values
+      const formData = new FormData(form);
+
+      // Support input IDs if name attributes aren't present
+      const nameVal = (form.querySelector("#touchName")?.value || formData.get("name") || "").trim();
+      const phoneVal = (form.querySelector("#touchPhone")?.value || formData.get("phone") || "").trim();
+      const emailVal = (form.querySelector("#touchEmail")?.value || formData.get("email") || "").trim();
+      const companyVal = (form.querySelector("#touchCompany")?.value || formData.get("company") || "").trim();
+      const messageVal = (form.querySelector("#touchMessage")?.value || formData.get("message") || "").trim();
+
+      formData.set("name", nameVal);
+      formData.set("phone", phoneVal);
+      formData.set("email", emailVal);
+      formData.set("company", companyVal);
+      formData.set("message", messageVal);
+
+      // Track document.title as page_source
+      formData.set("page_source", document.title || "Leading Edge Vision Website");
+
+      // Validate required fields on client side
+      if (!nameVal || !emailVal || !phoneVal || !messageVal) {
+        showAlert(alertBox, "error", "Please fill in all required fields marked with *.");
+        return;
+      }
+
+      // Show button loading state and prevent double submission
+      isSubmitting = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <span>Sending...</span>
+        `;
+      }
+
+      try {
+        const response = await fetch("send_mail.php", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json().catch(() => null);
+
+        if (response.ok && data && data.success) {
+          showAlert(alertBox, "success", data.message || "Thank you! Your enquiry has been sent successfully.");
+          form.reset();
+        } else {
+          const errorMsg = (data && data.message) ? data.message : "Something went wrong while submitting the form. Please try again.";
+          showAlert(alertBox, "error", errorMsg);
+        }
+      } catch (err) {
+        console.error("Contact Form Fetch Error:", err);
+        showAlert(alertBox, "error", "Unable to connect to the mail server. Please check your network connection and try again.");
+      } finally {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      }
+    });
+  });
+}
+
+function showAlert(container, type, message) {
+  if (!container) return;
+
+  // Clear any existing auto-hide timeout
+  if (container._hideTimeout) {
+    clearTimeout(container._hideTimeout);
+    container._hideTimeout = null;
+  }
+
+  // Reset inline styles
+  container.style.opacity = "";
+  container.style.transform = "";
+  container.style.transition = "";
+  container.style.display = "";
+
+  const isSuccess = type === "success";
+  container.className = `form-status-alert show ${isSuccess ? "alert-success" : "alert-error"}`;
+
+  const iconSvg = isSuccess
+    ? `<svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`
+    : `<svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01" /></svg>`;
+
+  container.innerHTML = `
+    ${iconSvg}
+    <div class="alert-content">
+      <span>${message}</span>
+    </div>
+    <button type="button" class="alert-close" aria-label="Dismiss alert">&times;</button>
+  `;
+
+  const closeBtn = container.querySelector(".alert-close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      if (container._hideTimeout) {
+        clearTimeout(container._hideTimeout);
+        container._hideTimeout = null;
+      }
+      container.className = "form-status-alert";
+      container.style.display = "none";
+    });
+  }
+
+  // Auto-hide the success message after 5 seconds with smooth fade-out
+  if (isSuccess) {
+    container._hideTimeout = setTimeout(() => {
+      container.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      container.style.opacity = "0";
+      container.style.transform = "translateY(-6px)";
+
+      setTimeout(() => {
+        container.className = "form-status-alert";
+        container.style.display = "none";
+        container.style.opacity = "";
+        container.style.transform = "";
+        container.style.transition = "";
+        container._hideTimeout = null;
+      }, 600);
+    }, 5000);
+  }
+
+  // Scroll gently into view so the user immediately notices the alert
+  container.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 
 
 
