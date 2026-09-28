@@ -6307,14 +6307,17 @@ footer {
     left: 12px;
     right: 12px;
   }
+
   .left-contact-pill {
     width: 100%;
     justify-content: center;
     font-size: 12px;
   }
+
   .form-row-action {
     flex-direction: column;
   }
+
   .touch-submit-btn.compact-btn {
     width: 100%;
   }
@@ -6564,8 +6567,8 @@ footer {
   }
 
   .team-hero-content h1 {
-    font-size: 38px;
-    margin-bottom: 4px;
+    font-size: 50px;
+    margin-top: -26px;
   }
 
   .team-title-underline {
@@ -6580,8 +6583,7 @@ footer {
   }
 
   .team-hero-content p {
-    font-size: 13.5px;
-    line-height: 1.5;
+    display: none !important;
   }
 
   .team-leaders-section {
