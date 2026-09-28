@@ -6518,24 +6518,18 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .leader-card-clean .leader-content-box {
-    order: 1;
-  }
-
-  .leader-card-clean .leader-img-box {
-    order: 2;
-  }
-
-  .leader-card-reverse .leader-content-box {
-    order: 1;
-  }
-
+  .leader-card-clean .leader-img-box,
   .leader-card-reverse .leader-img-box {
+    order: 1;
+  }
+
+  .leader-card-clean .leader-content-box,
+  .leader-card-reverse .leader-content-box {
     order: 2;
   }
 
   .leader-content-box {
-    padding: 36px 30px;
+    padding: 30px 24px;
   }
 
   .leader-name-navy {
@@ -6543,8 +6537,8 @@ footer {
   }
 
   .leader-img-box {
-    min-height: 380px;
-    height: 380px;
+    min-height: 340px;
+    height: 350px;
   }
 
   .get-in-touch-card {
@@ -6650,8 +6644,8 @@ footer {
   }
 
   .leader-img-box {
-    min-height: 280px;
-    height: 280px;
+    min-height: 320px;
+    height: 340px;
   }
 
   .touch-right-form {
