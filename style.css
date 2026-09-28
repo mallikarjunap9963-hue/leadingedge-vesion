@@ -3040,16 +3040,9 @@ footer {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 18px;
-}
-
-.card-red-divider {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #d32f2f, #ef4444);
-  margin: 16px 0 20px;
-  border-radius: 2px;
-  opacity: 0.85;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
 }
 
 .japan-address-block {
@@ -5874,7 +5867,7 @@ footer {
 
 .leader-img-box img {
   width: 100%;
-  height: 100%;
+  height: 104%;
   object-fit: cover;
   object-position: top center;
   display: block;
