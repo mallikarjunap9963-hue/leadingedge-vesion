@@ -4215,6 +4215,8 @@ footer {
   .day-row-card,
   .day-row-card.row-reverse {
     grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px 18px;
   }
 
   .day-row-card.row-reverse .day-row-content {
@@ -4226,13 +4228,18 @@ footer {
   }
 
   .gallery-3col,
-  .gallery-2col {
+  .gallery-2col,
+  .gallery-1col {
     grid-template-columns: 1fr;
     height: auto;
   }
 
   .gallery-img-box {
-    height: 200px;
+    height: 220px;
+  }
+
+  .gallery-1col .gallery-img-box {
+    height: 230px;
   }
 }
 
